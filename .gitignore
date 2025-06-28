@@ -1,0 +1,37 @@
+# ---------------------------------------------------
+# Global ignores
+# ---------------------------------------------------
+.DS_Store
+Thumbs.db
+Dockerfile
+fly.toml
+.dockerignore
+.dockerignore.timestamp-*
+
+# ---------------------------------------------------
+# Client (SvelteKit) ignores
+# ---------------------------------------------------
+/client/node_modules/
+/client/.svelte-kit/
+/client/build/
+/client/.vite/
+/client/output/
+/client/vercel/
+/client/.env
+/client/.env.*
+!/client/.env.example
+!/client/.env.test
+!/client/.env.local
+
+/client/vite.config.js.timestamp-*
+/client/vite.config.ts.timestamp-*
+
+# ---------------------------------------------------
+# Server (Rust) ignores
+# ---------------------------------------------------
+/server/target/
+/server/.env
+/server/.env.*
+!/server/.env.example
+!/server/.env.test
+!/server/.env.local
