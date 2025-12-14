@@ -1,12 +1,11 @@
-use actix_web::http::header;
-use actix_web::{web, HttpResponse, Responder};
 use futures::future::join_all;
-use rand::Rng;
-use regex::Regex;
+use ntex::web::{types::Query, HttpResponse, Responder};
+use rand::prelude::*;
+use reqwest;
 use serde::Deserialize;
 use serde_json::Value;
 
-const MAX_POKEMON_COUNT: i32 = 1025;
+const MAX_POKEMON_COUNT: usize = 1025;
 
 #[derive(Deserialize)]
 pub struct SearchParams {
@@ -22,16 +21,14 @@ fn validate_pokemon_identifier(input: &str) -> Result<(), &'static str> {
     if input.is_empty() {
         return Err("Input cannot be empty");
     }
-
     if input.len() > 100 {
         return Err("Input too long");
     }
-
-    let re = Regex::new(r"^[a-zA-Z0-9\-_]+$").unwrap();
-    if !re.is_match(input) {
-        return Err("Invalid characters in input");
+    for c in input.chars() {
+        if !c.is_alphanumeric() && c != '-' && c != '_' {
+            return Err("Invalid characters in input");
+        }
     }
-
     Ok(())
 }
 
@@ -39,9 +36,7 @@ async fn fetch_pokemon(client: &reqwest::Client, id_or_name: &str) -> Result<Val
     if let Err(msg) = validate_pokemon_identifier(id_or_name) {
         return Err(HttpResponse::BadRequest().body(msg));
     }
-
     let url = format!("https://pokeapi.co/api/v2/pokemon/{}", id_or_name);
-
     let pokemon_data: Value = client
         .get(&url)
         .send()
@@ -50,11 +45,9 @@ async fn fetch_pokemon(client: &reqwest::Client, id_or_name: &str) -> Result<Val
         .json()
         .await
         .map_err(|_| HttpResponse::InternalServerError().body("Failed to parse data"))?;
-
     let species_url = pokemon_data["species"]["url"]
         .as_str()
         .ok_or_else(|| HttpResponse::InternalServerError().body("No species URL found"))?;
-
     let species_data: Value = client
         .get(species_url)
         .send()
@@ -63,7 +56,6 @@ async fn fetch_pokemon(client: &reqwest::Client, id_or_name: &str) -> Result<Val
         .json()
         .await
         .map_err(|_| HttpResponse::InternalServerError().body("Failed to parse species"))?;
-
     Ok(serde_json::json!({
         "name": pokemon_data["name"],
         "image_url": pokemon_data["sprites"]["front_default"],
@@ -77,12 +69,12 @@ async fn fetch_pokemon(client: &reqwest::Client, id_or_name: &str) -> Result<Val
     }))
 }
 
-pub async fn search(query: web::Query<SearchParams>) -> impl Responder {
+pub async fn search(query: Query<SearchParams>) -> impl Responder {
     let client = reqwest::Client::new();
     match fetch_pokemon(&client, &query.id_or_name).await {
         Ok(pokemon) => HttpResponse::Ok()
-            .insert_header((header::CACHE_CONTROL, "public, max-age=10"))
-            .json(pokemon),
+            .set_header("Cache-Control", "public, max-age=10")
+            .json(&pokemon),
         Err(e) => {
             println!("Error: {:?}", e);
             e
@@ -90,21 +82,17 @@ pub async fn search(query: web::Query<SearchParams>) -> impl Responder {
     }
 }
 
-pub async fn get_n_random(query: web::Query<RandomParams>) -> impl Responder {
-    if query.n > 15 {
-        return HttpResponse::BadRequest().body("n must be less than 15");
+pub async fn get_n_random(query: Query<RandomParams>) -> impl Responder {
+    if query.n > 15 || query.n < 1 {
+        return HttpResponse::BadRequest().body("n must be between 1 and 15");
     }
-
     let client = reqwest::Client::new();
-    let mut rng = rand::thread_rng();
-
+    let mut rng = thread_rng();
     let ids: Vec<String> = (0..query.n)
         .map(|_| rng.gen_range(1..MAX_POKEMON_COUNT).to_string())
         .collect();
-
     let promises = ids.iter().map(|id| fetch_pokemon(&client, id));
     let results = join_all(promises).await;
-
     let pokemons: Vec<_> = results.into_iter().filter_map(Result::ok).collect();
-    HttpResponse::Ok().json(pokemons)
+    HttpResponse::Ok().json(&pokemons)
 }

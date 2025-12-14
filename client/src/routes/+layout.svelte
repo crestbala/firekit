@@ -23,3 +23,13 @@
 	</div>
 	<Footer />
 </div>
+
+
+<style>
+    :global(body) {
+		font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+</style>
