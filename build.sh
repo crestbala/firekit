@@ -11,6 +11,7 @@ npm run build
 
 echo "🦀 Building backend..."
 cd ../tail
-cargo run --release
+cargo build --release
+./target/release/tail
 
 echo -e "\n\n✅ Build complete! Your software executable is in server/target/release/server. Run it with ./server/target/release/server \n\n"

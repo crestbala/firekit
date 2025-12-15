@@ -12,5 +12,11 @@
             >
         </span>
     </div>
-    <p>Improved and Modified by Balachandran Manimegalai</p>
+    <p>
+        Improved and Modified by <a
+            href="https://www.linkedin.com/in/balachandran-manimegalai-9478242a5/"
+            target="_blank"
+            class="underline">Balachandran Manimegalai</a
+        >
+    </p>
 </div>
