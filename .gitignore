@@ -1,6 +1,7 @@
 # ---------------------------------------------------
 # Client (SvelteKit) ignores
 # ---------------------------------------------------
+front/.svelte-kit/
 front/node_modules/
 front/build/
 front/.vite/
@@ -17,9 +18,15 @@ front/vite.config.ts.timestamp-*
 # ---------------------------------------------------
 # Server (Rust) ignores
 # ---------------------------------------------------
+tail/.cargo
 tail/target/
 tail/.env
 tail/.env.*
 !tail/.env.example
 !tail/.env.test
 !tail/.env.local
+
+
+// Deploy
+Dockerfile
+fly.toml
