@@ -111,6 +111,47 @@ This stack is significantly faster than Next.js:
 - 📦 **Single binary** - Fast deployment and startup
 - 🚀 **Async by default** - Efficient resource usage
 
+### Benchmark Results
+
+Tested on MacBook Air M2, 2022 using `wrk -t10 -c100 -d30s`
+
+#### Rust (ntex-rs) Backend - Port 8080
+
+**Homepage:**
+```
+Requests/sec:  36,463.42
+Transfer/sec:  41.14MB
+Latency (avg): 3.29ms
+```
+
+**Dynamic Route (/pokemon/thievul):**
+```
+Requests/sec:  36,529.46
+Transfer/sec:  41.21MB
+Latency (avg): 3.26ms
+```
+
+#### SvelteKit (Node.js) - Port 4173
+
+**Homepage:**
+```
+Requests/sec:  9,762.01
+Transfer/sec:  35.26MB
+Latency (avg): 10.34ms
+```
+
+**Dynamic Route (/pokemon/thievul):**
+```
+Requests/sec:  9,076.10
+Transfer/sec:  27.37MB
+Latency (avg): 12.82ms
+```
+
+**Performance Comparison:**
+- 🚀 Rust backend is **3.7x faster** than Node.js
+- ⚡ **3x lower latency** on average
+- 📊 Handles **4x more requests per second**
+
 ## 🔑 Important Configuration
 
 ### Frontend
