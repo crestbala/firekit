@@ -1,12 +1,6 @@
 # ---------------------------------------------------
 # Global ignores
 # ---------------------------------------------------
-.DS_Store
-Thumbs.db
-Dockerfile
-fly.toml
-.dockerignore
-.dockerignore.timestamp-*
 
 # ---------------------------------------------------
 # Client (SvelteKit) ignores

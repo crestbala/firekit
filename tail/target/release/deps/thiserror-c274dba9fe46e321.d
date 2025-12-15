@@ -1,0 +1,14 @@
+/Users/bala_mani/Projects/firekit/tail/target/release/deps/thiserror-c274dba9fe46e321.d: /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/bala_mani/Projects/firekit/tail/target/release/build/thiserror-2208294d3901ba2a/out/private.rs
+
+/Users/bala_mani/Projects/firekit/tail/target/release/deps/libthiserror-c274dba9fe46e321.rlib: /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/bala_mani/Projects/firekit/tail/target/release/build/thiserror-2208294d3901ba2a/out/private.rs
+
+/Users/bala_mani/Projects/firekit/tail/target/release/deps/libthiserror-c274dba9fe46e321.rmeta: /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /Users/bala_mani/Projects/firekit/tail/target/release/build/thiserror-2208294d3901ba2a/out/private.rs
+
+/Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs:
+/Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs:
+/Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs:
+/Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs:
+/Users/bala_mani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs:
+/Users/bala_mani/Projects/firekit/tail/target/release/build/thiserror-2208294d3901ba2a/out/private.rs:
+
+# env-dep:OUT_DIR=/Users/bala_mani/Projects/firekit/tail/target/release/build/thiserror-2208294d3901ba2a/out

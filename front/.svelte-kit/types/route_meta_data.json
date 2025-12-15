@@ -1,0 +1,16 @@
+{
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/infos": [
+		"src/routes/+layout.ts"
+	],
+	"/pokemon": [
+		"src/routes/+layout.ts"
+	],
+	"/pokemon/[slug]": [
+		"src/routes/pokemon/[slug]/+page.ts",
+		"src/routes/+layout.ts"
+	]
+}

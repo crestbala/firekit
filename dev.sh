@@ -12,14 +12,14 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 echo "⚡️ Starting frontend..."
-cd client
+cd front
 npm install
 npm run dev &
 FRONTEND_PID=$!
 cd ..
 
 echo "🦀 Starting backend..."
-cd server
+cd tail
 cargo run &
 BACKEND_PID=$!
 cd ..

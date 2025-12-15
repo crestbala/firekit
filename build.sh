@@ -2,15 +2,15 @@
 set -e
 
 echo "📦 Building frontend..."
-cd client
+cd front
 if [ -e "build" ]; then
     rm -rf build
 fi
-# npm install
+npm install
 npm run build
 
 echo "🦀 Building backend..."
-cd ../server
+cd ../tail
 cargo run --release
 
 echo -e "\n\n✅ Build complete! Your software executable is in server/target/release/server. Run it with ./server/target/release/server \n\n"
