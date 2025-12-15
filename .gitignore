@@ -28,5 +28,7 @@ tail/.env.*
 
 
 // Deploy
+.dockerignore
 Dockerfile
+.github
 fly.toml
