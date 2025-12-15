@@ -5,27 +5,26 @@
 # ---------------------------------------------------
 # Client (SvelteKit) ignores
 # ---------------------------------------------------
-/client/node_modules/
-/client/.svelte-kit/
-/client/build/
-/client/.vite/
-/client/output/
-/client/vercel/
-/client/.env
-/client/.env.*
-!/client/.env.example
-!/client/.env.test
-!/client/.env.local
+/front/node_modules/
+/front/build/
+/front/.vite/
+/front/output/
+/front/vercel/
+/front/.env
+/front/.env.*
+!/front/.env.example
+!/front/.env.test
+!/front/.env.local
 
-/client/vite.config.js.timestamp-*
-/client/vite.config.ts.timestamp-*
+/front/vite.config.js.timestamp-*
+/front/vite.config.ts.timestamp-*
 
 # ---------------------------------------------------
 # Server (Rust) ignores
 # ---------------------------------------------------
-/server/target/
-/server/.env
-/server/.env.*
-!/server/.env.example
-!/server/.env.test
-!/server/.env.local
+/tail/target/
+/tail/.env
+/tail/.env.*
+!/tail/.env.example
+!/tail/.env.test
+!/tail/.env.local
