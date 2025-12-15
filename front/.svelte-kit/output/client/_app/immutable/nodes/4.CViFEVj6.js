@@ -1,0 +1,1 @@
+import{f as t,a as o}from"../chunks/CILNjB47.js";var a=t('<div class="flex flex-col justify-center items-center mt-40"><p>This route is prerendered :)</p></div>');function p(e){var r=a();o(e,r)}export{p as component};
